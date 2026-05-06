@@ -1,6 +1,7 @@
 name: Dispatch
 
 on:
+  pull_request_target:
   workflow_dispatch:
     inputs:
       value:
