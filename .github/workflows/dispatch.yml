@@ -1,0 +1,16 @@
+name: Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      value:
+        description: 'Value to pass to test.sh'
+        required: true
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run test script
+        run: bash .scripts/test.sh "${{ github.event.inputs.value }}"
